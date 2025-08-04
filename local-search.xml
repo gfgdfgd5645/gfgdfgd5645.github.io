@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>CC的开始</title>
+    <link href="/2025/08/04/C%E7%9A%84%E5%BC%80%E5%A7%8B/"/>
+    <url>/2025/08/04/C%E7%9A%84%E5%BC%80%E5%A7%8B/</url>
+    
+    <content type="html"><![CDATA[<h1 id="C的开始"><a href="#C的开始" class="headerlink" title="C的开始"></a>C的开始</h1><p>既然是开始那么helloword必不可少</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#include&lt;stdio.h&gt;</span><br>int <span class="hljs-function"><span class="hljs-title">main</span></span>()<br>&#123;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;hello word!&quot;</span>);<br>    <span class="hljs-built_in">return</span> 0;<br>&#125;<br></code></pre></td></tr></table></figure><hr><h2 id="结构分析"><a href="#结构分析" class="headerlink" title="结构分析"></a>结构分析</h2><ul><li>#include…是头文件，里面有一些函数方便调取，</li><li>main是主函数，是每个C语言程序所必需的</li></ul><hr><p>顺便提一嘴，靠，学了好几个hello word 这次一定好好学 既然做了决定就坚持下去好吗</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Hello World</title>
     <link href="/2025/08/03/hello-world/"/>
     <url>/2025/08/03/hello-world/</url>
