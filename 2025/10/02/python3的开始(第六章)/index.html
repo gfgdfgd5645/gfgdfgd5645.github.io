@@ -27,7 +27,7 @@
 <meta property="og:description" content="数据容器的入门数据容器:一种可以容纳多份数据的数据类型，容纳的每一份数据称之为一个元素，每一个元素，可以是任意类型的数据，如字符串，数字，布尔等数据容器根据特点的不同如  是否支持重复元素 是否可以修改 是否可以排序分为五类 列表（list） 元组（tuple） 字典（dict） 集合（set） 字符串（str）   列表(list)字面量[1,2,3,4,5]定义变量a &#x3D; [1,2,">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-10-02T12:04:27.895Z">
-<meta property="article:modified_time" content="2025-10-08T14:16:11.837Z">
+<meta property="article:modified_time" content="2025-10-09T07:12:44.609Z">
 <meta property="article:author" content="Ryan">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.1k 字
+          3.3k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          26 分钟
+          28 分钟
         
       </span>
     
@@ -373,7 +373,12 @@
 <li>增：字典[key] &#x3D; value</li>
 <li>删：del 字典[key]</li>
 <li>改：字典[key] &#x3D; value</li>
-<li>查：字典[key]<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">d = &#123;<span class="hljs-string">&quot;name&quot;</span>:<span class="hljs-string">&quot;zhangsan&quot;</span>,<span class="hljs-string">&quot;age&quot;</span>:<span class="hljs-number">18</span>,<span class="hljs-string">&quot;sex&quot;</span>:<span class="hljs-string">&quot;male&quot;</span>&#125;<br>d[<span class="hljs-string">&quot;name&quot;</span>] = <span class="hljs-string">&quot;lisi&quot;</span><br><span class="hljs-built_in">print</span>(d)<br></code></pre></td></tr></table></figure></li>
+<li>查：字典[key]<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">d = &#123;<span class="hljs-string">&quot;name&quot;</span>:<span class="hljs-string">&quot;zhangsan&quot;</span>,<span class="hljs-string">&quot;age&quot;</span>:<span class="hljs-number">18</span>,<span class="hljs-string">&quot;sex&quot;</span>:<span class="hljs-string">&quot;male&quot;</span>&#125;<br>d[<span class="hljs-string">&quot;name&quot;</span>] = <span class="hljs-string">&quot;lisi&quot;</span><br><span class="hljs-built_in">print</span>(d)<br></code></pre></td></tr></table></figure>
+字典的常用操作</li>
+<li>新增元素<br>语法：字典[key] &#x3D; value 如果key不存在，则新增元素，如果key存在，则修改元素<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">d = &#123;<span class="hljs-string">&quot;name&quot;</span>:<span class="hljs-string">&quot;zhangsan&quot;</span>,<span class="hljs-string">&quot;age&quot;</span>:<span class="hljs-number">18</span>,<span class="hljs-string">&quot;sex&quot;</span>:<span class="hljs-string">&quot;male&quot;</span>&#125;<br>d[<span class="hljs-string">&quot;name&quot;</span>] = <span class="hljs-string">&quot;lisi&quot;</span><br><span class="hljs-built_in">print</span>(d)<br></code></pre></td></tr></table></figure>
+删除元素<br><strong>字典.pop(key)</strong><br>功能：删除字典中指定key的元素，<strong>并返回value</strong><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">d = &#123;<span class="hljs-string">&quot;name&quot;</span>:<span class="hljs-string">&quot;zhangsan&quot;</span>,<span class="hljs-string">&quot;age&quot;</span>:<span class="hljs-number">18</span>,<span class="hljs-string">&quot;sex&quot;</span>:<span class="hljs-string">&quot;male&quot;</span>&#125;<br>c = d.pop(<span class="hljs-string">&quot;name&quot;</span>)<br><span class="hljs-built_in">print</span>(d)<br><span class="hljs-built_in">print</span>(c)<br></code></pre></td></tr></table></figure>
+获取字典所有key<br><strong>字典.keys()</strong><br>功能：获取字典中所有key，并返回一个列表<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">d = &#123;<span class="hljs-string">&quot;name&quot;</span>:<span class="hljs-string">&quot;zhangsan&quot;</span>,<span class="hljs-string">&quot;age&quot;</span>:<span class="hljs-number">18</span>,<span class="hljs-string">&quot;sex&quot;</span>:<span class="hljs-string">&quot;male&quot;</span>&#125;<br>c = d.keys()<br><span class="hljs-built_in">print</span>(c)<br></code></pre></td></tr></table></figure>
+遍历字典<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">d = &#123;<span class="hljs-string">&quot;name&quot;</span>:<span class="hljs-string">&quot;zhangsan&quot;</span>,<span class="hljs-string">&quot;age&quot;</span>:<span class="hljs-number">18</span>,<span class="hljs-string">&quot;sex&quot;</span>:<span class="hljs-string">&quot;male&quot;</span>&#125;<br>keys = d.keys()<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> keys:<span class="hljs-comment">#其实也可以直接写d</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;key的值是<span class="hljs-subst">&#123;i&#125;</span>&quot;</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;value的值是<span class="hljs-subst">&#123;d[i]&#125;</span>&quot;</span>)<br></code></pre></td></tr></table></figure></li>
 </ul>
 
                 
