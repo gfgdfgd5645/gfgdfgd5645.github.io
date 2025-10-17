@@ -27,7 +27,7 @@
 <meta property="og:description" content="了解异常异常是程序在运行过程中发生的错误，它会导致程序的运行中断，并提示错误信息 捕捉异常当我们程序运行中遇到了bug要么是直接停止，要么是对bug进行适当的提醒，并继续运行捕获异常的作用在于提前假设某处可能会发生异常，当异常真的发生时可以有后续手段基本语法为try:    可能会发生异常的代码except:    异常发生时执行的代码例如 1234try:    f &#x3D; open(&quot;t">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-10-15T14:43:15.284Z">
-<meta property="article:modified_time" content="2025-10-15T14:58:11.004Z">
+<meta property="article:modified_time" content="2025-10-17T05:26:38.694Z">
 <meta property="article:author" content="Ryan">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          168 字
+          1.2k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          2 分钟
+          11 分钟
         
       </span>
     
@@ -278,6 +278,26 @@
                 <h1 id="了解异常"><a href="#了解异常" class="headerlink" title="了解异常"></a>了解异常</h1><p>异常是程序在运行过程中发生的错误，它会导致程序的运行中断，并提示错误信息</p>
 <h2 id="捕捉异常"><a href="#捕捉异常" class="headerlink" title="捕捉异常"></a>捕捉异常</h2><p>当我们程序运行中遇到了bug要么是直接停止，<strong>要么是对bug进行适当的提醒，并继续运行</strong><br>捕获异常的作用在于提前假设某处可能会发生异常，当异常真的发生时可以有后续手段<br>基本语法为<br>try:<br>    可能会发生异常的代码<br>except:<br>    异常发生时执行的代码<br>例如</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">try</span>:<br>    f = <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;test.txt&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>, encoding=<span class="hljs-string">&quot;utf-8&quot;</span>)<br><span class="hljs-keyword">except</span>:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;文件不存在&quot;</span>)<br></code></pre></td></tr></table></figure>
+<p>如上捕获全部异常，<strong>except:和 except Exception:是等价的</strong></p>
+<h2 id="捕捉指定异常"><a href="#捕捉指定异常" class="headerlink" title="捕捉指定异常"></a>捕捉指定异常</h2><p>捕获指定异常，即除这个指定异常以外的异常不执行提前写好的异常处理代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">try</span>:<br>    f = <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;test.txt&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>, encoding=<span class="hljs-string">&quot;utf-8&quot;</span>)<br><span class="hljs-keyword">except</span> FileNotFoundError <span class="hljs-keyword">as</span> e:<span class="hljs-comment">#这里的e是异常对象，可以通过e.args获取异常的详细信息</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;文件不存在&quot;</span>)<br>    <span class="hljs-built_in">print</span>(e)<br></code></pre></td></tr></table></figure>
+<p>捕获多种异常</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">try</span>:<br>    f = <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;test.txt&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>, encoding=<span class="hljs-string">&quot;utf-8&quot;</span>)<br><span class="hljs-keyword">except</span> (FileNotFoundError, IOError) <span class="hljs-keyword">as</span> e:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;文件不存在&quot;</span>)<br>    <span class="hljs-built_in">print</span>(e)<br></code></pre></td></tr></table></figure>
+<p>如果出现如上两种一场都会执行except中的代码<br>如果需要在捕获异常后继续执行代码，可以使用else</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">try</span>:<br>    f = <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;test.txt&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>, encoding=<span class="hljs-string">&quot;utf-8&quot;</span>)<br><span class="hljs-keyword">except</span> (FileNotFoundError, IOError) <span class="hljs-keyword">as</span> e:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;文件不存在&quot;</span>)<br>    <span class="hljs-built_in">print</span>(e)<br><span class="hljs-keyword">else</span>:<span class="hljs-comment">#如果没有异常，则执行else中的代码</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;文件存在&quot;</span>)<br></code></pre></td></tr></table></figure>
+<p>在try中finally中写的代码无论是否有异常都会执行</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">try</span>:<br>    f = <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;test.txt&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>, encoding=<span class="hljs-string">&quot;utf-8&quot;</span>)<br><span class="hljs-keyword">except</span> (FileNotFoundError, IOError) <span class="hljs-keyword">as</span> e:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;文件不存在&quot;</span>)<br>    <span class="hljs-built_in">print</span>(e)<br><span class="hljs-keyword">else</span>:<span class="hljs-comment">#如果没有异常，则执行else中的代码</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;文件存在&quot;</span>)<br><span class="hljs-keyword">finally</span>:<br>    f.close()<br></code></pre></td></tr></table></figure>
+<h3 id="异常的传递"><a href="#异常的传递" class="headerlink" title="异常的传递"></a>异常的传递</h3><p>异常是具有传递性的，例如</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">func</span>():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;开始执行&quot;</span>)<br>    num = <span class="hljs-number">1</span>/<span class="hljs-number">0</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">func2</span>():<br>    func()<br> <span class="hljs-keyword">def</span> <span class="hljs-title function_">main</span>:<br>    <span class="hljs-keyword">try</span>:<br>        func2()<br>    <span class="hljs-keyword">except</span> ZeroDivisionError <span class="hljs-keyword">as</span> e:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;捕获异常&quot;</span>)<br>        <span class="hljs-built_in">print</span>(e)<br>main()<br></code></pre></td></tr></table></figure>
+<p>在main函数中捕获异常，在func2函数中调用func函数，在func函数中出现异常，则会被main函数捕获</p>
+<h4 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h4><p>模块是python中的一种组织代码的方式，同时也是一个普通以.py结尾的文件，模块可以包含函数，类，变量等<br>模块的作用：python中有很多各种不同的模块，每一个模块都可以帮助我们快速的实现一些功能，比如实现和时间相关的功能，可以直接导入time模块，然后使用time模块中的函数，我们可以认为模块就是一个工具包<br>大白话就是模块就是一个python文件，里面有类，函数，变量等，我们可以直接拿过来用<br>模块在使用前需要先导入，导入的语法为<br><strong>[from 模块名] import [模块 | 类 | 函数 | 变量] [as 别名]</strong><br>常用组合为下<br>import 模块名<br>from 模块名 import 模块 | 类 | 函数 | 变量<br>from 模块名 import *<br>import 模块名 as 别名<br>from 模块名 import 模块 | 类 | 函数 | 变量 as 别名<br>如果用import * 导入模块中的所有内容，则需要注意，如果模块中有和内置函数重名的函数，则会被覆盖,且每次使用时需要加上模块名比如time.sleep()<br>但是如果使用from 模块名 import * 则不会覆盖内置函数，且可以直接使用函数名，如sleep()<br>如果导入的模块名字非常长 可以使用as 别名来简化</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> time <span class="hljs-keyword">as</span> t<br>t.sleep(<span class="hljs-number">1</span>)<br></code></pre></td></tr></table></figure>
+<h5 id="自定义模块"><a href="#自定义模块" class="headerlink" title="自定义模块"></a>自定义模块</h5><p>与导入内置模块不同，自定义模块需要自己创建，然后在需要使用的文件中导入<br>如果导入相同名字的模块名，且功能不一，根据写入顺序，后面的会覆盖掉前面的<br><strong>x需要注意的是如果在一个文件中导入了模块，其实是会执行一遍模块中的代码的，如果模块中有print，则会打印一遍</strong></p>
+<ol>
+<li><strong>name</strong><br>遇到这种情况时候，可以使用if <strong>name</strong> &#x3D;&#x3D; “<strong>main</strong>“来判断是否是直接执行的文件，如果是直接执行的文件，则执行if中的代码，如果不是直接执行的文件，则不执行if中的代码，<strong>name__是python中一个特殊的变量，它表示当前模块的名字，如果当前模块是被其他模块导入的，则__name__的值是导入模块的名字，如果当前模块是直接执行的，则__name__的值是__main</strong></li>
+<li><strong>all</strong><br>如果需要导入模块中的所有内容，可以使用__all__来指定需要导入的内容，__all__是一个列表，列表中的元素是需要导入的内容，如果不指定__all__，则默认导入模块中的所有内容</li>
+</ol>
+
                 
               </div>
             
