@@ -1,0 +1,651 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Ryan">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="初识对象不管在生活中还是程序中都需要提一个概念，那就是数据的组织，组织数据可以减少数据的混乱程度，提高效率，在生活中我们组织顺序可能是设计表格，生产表格，填写表格，在程序中其形式可能是设计类，创建对象，对象属性赋值 12345678910111213141516class student:    name &#x3D; None    gender &#x3D; None    nationality &#x3D; None">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ryan的小站">
+<meta property="og:url" content="https://gfgdfgd5645.github.io/2025/10/21/python%E7%9A%84%E8%BF%9B%E9%98%B6(%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0)/index.html">
+<meta property="og:site_name" content="Ryan的小站">
+<meta property="og:description" content="初识对象不管在生活中还是程序中都需要提一个概念，那就是数据的组织，组织数据可以减少数据的混乱程度，提高效率，在生活中我们组织顺序可能是设计表格，生产表格，填写表格，在程序中其形式可能是设计类，创建对象，对象属性赋值 12345678910111213141516class student:    name &#x3D; None    gender &#x3D; None    nationality &#x3D; None">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-10-21T07:07:08.498Z">
+<meta property="article:modified_time" content="2025-10-22T15:17:01.013Z">
+<meta property="article:author" content="Ryan">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Ryan的小站</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"gfgdfgd5645.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Ryan的小站</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text=""></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-10-21 15:07" pubdate>
+          2025年10月21日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          13 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header"></h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="初识对象"><a href="#初识对象" class="headerlink" title="初识对象"></a>初识对象</h1><p>不管在生活中还是程序中都需要提一个概念，那就是数据的组织，组织数据可以减少数据的混乱程度，提高效率，在生活中我们组织顺序可能是设计表格，生产表格，填写表格，<strong>在程序中其形式可能是设计类，创建对象，对象属性赋值</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">student</span>:<br>    name = <span class="hljs-literal">None</span><br>    gender = <span class="hljs-literal">None</span><br>    nationality = <span class="hljs-literal">None</span><br>    age = <span class="hljs-literal">None</span><br><span class="hljs-comment">#创建一个类</span><br>su = student()<span class="hljs-comment">#创建对象</span><br><span class="hljs-comment">#给对象的属性赋值</span><br>su.name = <span class="hljs-string">&quot;小明&quot;</span><br>su.gender = <span class="hljs-string">&quot;男&quot;</span><br>su.nationality = <span class="hljs-string">&quot;中国&quot;</span><br>su.age = <span class="hljs-number">18</span><br><span class="hljs-built_in">print</span>(su.name)<br><span class="hljs-built_in">print</span>(su.gender)<br><span class="hljs-built_in">print</span>(su.nationality)<br><span class="hljs-built_in">print</span>(su.age)<br></code></pre></td></tr></table></figure>
+<h2 id="成员变量"><a href="#成员变量" class="headerlink" title="成员变量"></a>成员变量</h2><p>在上一节中我们利用类去封装属性，并基于类创建一个对象来使用<br>类的使用语法如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">类的名称</span>:<br>    类的属性（成员变量<br>    类的方法（成员方法<br>对象 = 类名() 创建类对象<br></code></pre></td></tr></table></figure>
+<p>类中有两类，一类是属性，一类是方法<br>例如</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">student</span>:<br>    name = <span class="hljs-literal">None</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">say_hi</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;大家好，我是<span class="hljs-subst">&#123;self.name&#125;</span>&quot;</span>)<br>su = student()<br>su.name = <span class="hljs-string">&quot;小明&quot;</span><br>su.say_hi()<br></code></pre></td></tr></table></figure>
+<p>不难看出，类中不仅可以定义属性用来记录数据，也可以定义函数，用来记录行为<br>类中定义的属性（变量），我们称之为成员变量，类中定义的函数，我们称之为成员方法<br>self 是python中类中函数的默认参数，表示当前对象，在类中可以通过self.属性名来访问当前对象的属性<br>关于self是需要注意的<br>1.它用来表示类对象自身的意思<br>2.当我们使用类对象调用方法的是，self会自动被python传入<br>3.在方法内部想要访问类的成员参数，必须使用self<br><strong>self尽管在列表参数中，但是传参时可以忽略,想要访问类的成员参数，必须使用slf这个参数</strong></p>
+<h3 id="类和对象"><a href="#类和对象" class="headerlink" title="类和对象"></a>类和对象</h3><p>基于类创建对象的语法为：对象名 &#x3D; 类名称名()<br>在这里思考一个问题 为什么非要创建对象才能使用呢？<br>类只是程序内部的设计图纸，对象是图纸生产实体（对象），才能正常工作，这种套路，称之为面向对象编程</p>
+<h3 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h3><p>在前面，我们在定义成员变量时，都是一个一个的定义，其实可以想函数那样一次性定义多个成员变量，这就是构造方法<br>在类中，有一个特殊的方法，叫做构造方法，构造方法的名称是**<strong>init</strong>** 其有两大特性</p>
+<ul>
+<li>在创建类对象时，会<strong>自动执行</strong></li>
+<li>在构造类对象的收，将传入参数自动传递给__init__方法<br><strong>其实构造函数时可以省略前面的定义变量，只需要在__init__方法中定义变量即可</strong><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">student</span>:<br>    name = <span class="hljs-literal">None</span><br>    gender = <span class="hljs-literal">None</span><br>    nationality = <span class="hljs-literal">None</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self,name,gender,nationality</span>):<span class="hljs-comment">#可以不写上面的定义，在__init__方法中定义也是完全可以的</span><br>        <span class="hljs-variable language_">self</span>.name = name<span class="hljs-comment">#这里的顺序有讲究，name是__init__方法获取得到的，赋值给self.name，方法内部的self.name是类中定义的属性</span><br>        <span class="hljs-variable language_">self</span>.gender = gender<br>        <span class="hljs-variable language_">self</span>.nationality = nationality<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;创建了一个类对象&quot;</span>)<br>su = student(<span class="hljs-string">&quot;小明&quot;</span>,<span class="hljs-string">&quot;男&quot;</span>,<span class="hljs-string">&quot;中国&quot;</span>)<br><span class="hljs-built_in">print</span>(su.name)<br></code></pre></td></tr></table></figure>
+利用for循环和类创建一个录入系统<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">student</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self,name,age,score</span>):<br>        <span class="hljs-variable language_">self</span>.name = name<br>        <span class="hljs-variable language_">self</span>.age = age<br>        <span class="hljs-variable language_">self</span>.score = score<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">show</span> (<span class="hljs-variable language_">self</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;当前同学为Name: <span class="hljs-subst">&#123;self.name&#125;</span>, Age: <span class="hljs-subst">&#123;self.age&#125;</span>, Score: <span class="hljs-subst">&#123;self.score&#125;</span>&quot;</span>)<br>students = []<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">9</span>):<br>    name = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;请输入姓名:&quot;</span>)<br>    age = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;请输入年龄:&quot;</span>)<br>    score = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;请输入分数:&quot;</span>)<br>    s = student(name,age,score)<br>    students.append(s)<br>    s.show()<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;所有学生信息:&quot;</span>)<br><span class="hljs-keyword">for</span> s <span class="hljs-keyword">in</span> students:<br>    s.show()<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="其他内置方法"><a href="#其他内置方法" class="headerlink" title="其他内置方法"></a>其他内置方法</h4><p>上文学习到的__init__方法是构造方法，还有其他的内置方法,他们都叫做魔术方法，例如__str__字符串方法,__lt__小于大于符号比较,__le__小于等于大于等于符号比较,__eq__符号比较</p>
+<ol>
+<li><strong>str</strong></li>
+</ol>
+<ul>
+<li>在打印对象时，会自动调用__str__方法，并将返回值打印出来，<strong>控制类转换为字符串的行为</strong><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">student</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self,name,age,score</span>):<br>        <span class="hljs-variable language_">self</span>.name = name<br>        <span class="hljs-variable language_">self</span>.age = age<br>        <span class="hljs-variable language_">self</span>.score = score<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__str__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">f&quot;当前同学为Name: <span class="hljs-subst">&#123;self.name&#125;</span>, Age: <span class="hljs-subst">&#123;self.age&#125;</span>, Score: <span class="hljs-subst">&#123;self.score&#125;</span>&quot;</span><br>s = student(<span class="hljs-string">&quot;小明&quot;</span>,<span class="hljs-number">18</span>,<span class="hljs-number">90</span>)<br><span class="hljs-built_in">print</span>(s)<br></code></pre></td></tr></table></figure>
+如果没有__str__方法，则打印对象时，会打印出对象的内存地址，如果有__str__方法，则打印对象时，会调用__str__方法，并将返回值打印出来</li>
+</ul>
+<ol start="2">
+<li><strong>init</strong></li>
+</ol>
+<ul>
+<li>在比较两个对象时，如果没有提前定义比较方法，则会报错，如果定义了__lt__方法，则会调用__lt__方法，并将返回值打印出来<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">student</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self,name,age,score</span>):<br>        <span class="hljs-variable language_">self</span>.name = name<br>        <span class="hljs-variable language_">self</span>.age = age<br>        <span class="hljs-variable language_">self</span>.score = score<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__lt__</span>(<span class="hljs-params">self,other</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">self</span>.score &lt; other.score<br>s1 = student(<span class="hljs-string">&quot;小明&quot;</span>,<span class="hljs-number">18</span>,<span class="hljs-number">90</span>)<br>s2 = student(<span class="hljs-string">&quot;小红&quot;</span>,<span class="hljs-number">18</span>,<span class="hljs-number">90</span>)<br><span class="hljs-built_in">print</span>(s1 &lt; s2)<br></code></pre></td></tr></table></figure>
+lt支持大于小于，但是不支持，但是le支持大于等于小于等于，<br>2主要用于大于等于或者小于等于的判断</li>
+</ul>
+<ol start="2">
+<li><strong>le</strong><br>与init方法类似，le支持大于等于或者小于等于的判断</li>
+<li><strong>eq</strong><br>eq方法主要是判断两个对象是否相等，判断细节自定义，只要返回值为True或者False即可，传入参数与__init__方法相同，都代写为other<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">student</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self,name,age,score</span>):<br>        <span class="hljs-variable language_">self</span>.name = name<br>        <span class="hljs-variable language_">self</span>.age = age<br>        <span class="hljs-variable language_">self</span>.score = score<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__eq__</span>(<span class="hljs-params">self,other</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">self</span>.score == other.score<br>s1 = student(<span class="hljs-string">&quot;小明&quot;</span>,<span class="hljs-number">18</span>,<span class="hljs-number">90</span>)<br>s2 = student(<span class="hljs-string">&quot;小红&quot;</span>,<span class="hljs-number">18</span>,<span class="hljs-number">90</span>)<br><span class="hljs-built_in">print</span>(s1 == s2)<br></code></pre></td></tr></table></figure></li>
+</ol>
+<h5 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h5><p>面向对象，是许多编程语言都支持的一种编程思想，可以简单理解为基于模板（类）去创建实体（对象），使用对象完成功能开发<br><strong>面向对象的三大特性</strong></p>
+<ul>
+<li>封装</li>
+<li>继承</li>
+<li>多态<br>封装表示的是将现实世界中的事物的<strong>属性****行为</strong>封装到类中描述为<strong>成员变量，成员方法</strong>，从而完成程序对现实世界的描述</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div></div>
+      <div>https://gfgdfgd5645.github.io/2025/10/21/python的进阶(第十一章)/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Ryan</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年10月21日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/10/18/python%E7%9A%84%E8%BF%9B%E9%98%B6(%E7%AC%AC%E5%8D%81%E7%AB%A0)/" title="python的进阶(第十章)">
+                        <span class="hidden-mobile">python的进阶(第十章)</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
