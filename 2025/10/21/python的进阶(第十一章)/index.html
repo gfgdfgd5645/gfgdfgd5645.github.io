@@ -27,7 +27,7 @@
 <meta property="og:description" content="初识对象不管在生活中还是程序中都需要提一个概念，那就是数据的组织，组织数据可以减少数据的混乱程度，提高效率，在生活中我们组织顺序可能是设计表格，生产表格，填写表格，在程序中其形式可能是设计类，创建对象，对象属性赋值 12345678910111213141516class student:    name &#x3D; None    gender &#x3D; None    nationality &#x3D; None">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-10-21T07:07:08.498Z">
-<meta property="article:modified_time" content="2025-10-22T15:17:01.013Z">
+<meta property="article:modified_time" content="2025-10-23T14:25:28.946Z">
 <meta property="article:author" content="Ryan">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.5k 字
+          2.1k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          13 分钟
+          18 分钟
         
       </span>
     
@@ -312,8 +312,18 @@ lt支持大于小于，但是不支持，但是le支持大于等于小于等于�
 <ul>
 <li>封装</li>
 <li>继承</li>
-<li>多态<br>封装表示的是将现实世界中的事物的<strong>属性****行为</strong>封装到类中描述为<strong>成员变量，成员方法</strong>，从而完成程序对现实世界的描述</li>
+<li>多态<br>封装表示的是将现实世界中的事物的<strong>属性****行为</strong>封装到类中描述为<strong>成员变量，成员方法</strong>，从而完成程序对现实世界的描述<br>私有成员和公有成员<br>既然现实事物有不公开的属性和行为，那么作为现实事物在程序中映射的类，也应该支持。 具体的体现就是私有成员和公有成员<br><strong>定义私有成员和变量非常简单，只需要在成员变量或者成员方法前加上__两个下划线即可，例如__name</strong> 类对象是无法使用私有成员和方法的 但是类内部是可以正常使用的<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">student</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__name</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;小明&quot;</span>)<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">all_name</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-variable language_">self</span>.__name()<br>su = student()<br>su.all_name()<br></code></pre></td></tr></table></figure>
+私有成员的定义我们已经了解了其主要意义提供内部使用的属性和方法，而不对外开放</li>
 </ul>
+<h6 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h6><p>在一般情况下，每定义一个类都需要重新写具体的功能，但是继承可以帮我们在面对类似的功能时，可以直接使用父类中的功能，减少代码的重复<br>继承的语法如下，严格意义上讲下列的写法叫做单继承<br>class 类名(父类名):<br>    类体<br>在类中，可以通过super()来调用父类中的方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">new</span>:<br>    readhistrory = <span class="hljs-string">&quot;中国&quot;</span><br>    age = <span class="hljs-number">19</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">student</span>(<span class="hljs-title class_ inherited__">new</span>):<br>    new = <span class="hljs-number">99</span><br>a = student()<br><span class="hljs-built_in">print</span>(a.readhistrory)<br></code></pre></td></tr></table></figure>
+<p>多继承，顾名思义就是一个类可以继承多个类，例如</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">new</span>:<br>    readhistrory = <span class="hljs-string">&quot;中国&quot;</span><br>    age = <span class="hljs-number">19</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">student</span>():<br>    live = <span class="hljs-string">&quot;北京&quot;</span><br>    hight = <span class="hljs-number">188</span>   <br><span class="hljs-keyword">class</span> <span class="hljs-title class_">student</span>(new,student):<br>    bb = <span class="hljs-number">99</span><br>a = student()<br><span class="hljs-built_in">print</span>(a.readhistrory)<br></code></pre></td></tr></table></figure>
+<p>如果继承父类中有名字相同的成员，那么默认以继承顺序（从左到右）为优先级，即先继承的保留，后继承的被覆盖<br>例如</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">new</span>:<br>    age = <span class="hljs-number">19</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">student</span>():<br>    age = <span class="hljs-number">18</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">su</span>(new,student):<br>    <span class="hljs-keyword">pass</span><br>a = su()<br><span class="hljs-built_in">print</span>(a.age)<br></code></pre></td></tr></table></figure>
+<p>应该是优先继承new中的age，而不是student中的age<br>在上面写的类中有写到pass。pass只是单纯的占位符，没有实际意义，只是保证类的完整性<br><strong>复写</strong><br><strong>子类继承父类的成员属性和成员方法后，如果对其不满意，那么可以进行复写，即在子类中重新定义同名的属性和方法即可</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">phone</span>:<br>    IEMEL = NONE<br>    producer = <span class="hljs-string">&quot;ITCAST&quot;</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">call_by_5g</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;5g打电话&quot;</span>)<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">new_phone</span>(<span class="hljs-title class_ inherited__">phone</span>):<br>    proucer = <span class="hljs-string">&quot;ITHEIMA&quot;</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">call_by_5g</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;子类的5g打电话&quot;</span>)<br></code></pre></td></tr></table></figure>
+<p>调用父类同名成员，一旦复写了父类成员，那么类对象调用成员的时候，就会优先调用复写后的新成员，如果需要使用被复写的父类成员<br>方法一：调用父类成员<br>使用成员变量：父类名.成员变量<br>使用成员方法：父类名.成员方法(self)<br>方法二：使用super()<br>使用成员变量：super().成员变量<br>使用成员方法：super().成员方法(self)</p>
 
                 
               </div>
