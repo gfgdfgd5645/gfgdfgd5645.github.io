@@ -27,7 +27,7 @@
 <meta property="og:description" content="初识对象不管在生活中还是程序中都需要提一个概念，那就是数据的组织，组织数据可以减少数据的混乱程度，提高效率，在生活中我们组织顺序可能是设计表格，生产表格，填写表格，在程序中其形式可能是设计类，创建对象，对象属性赋值 12345678910111213141516class student:    name &#x3D; None    gender &#x3D; None    nationality &#x3D; None">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-10-24T05:27:48.000Z">
-<meta property="article:modified_time" content="2025-10-24T05:27:48.000Z">
+<meta property="article:modified_time" content="2025-11-18T11:14:57.285Z">
 <meta property="article:author" content="Ryan">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.2k 字
+          2.3k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          19 分钟
+          20 分钟
         
       </span>
     
@@ -330,6 +330,9 @@ lt支持大于小于，但是不支持，但是le支持大于等于小于等于�
 <li>函数（方法）的参数注解</li>
 <li>union类型<br>在前面学列表时，如果list已经定义，那么输入</li>
 </ul>
+<p>####### 类方法<br>实例获取类属性时，都是__class__指向的，如果实例后想要修改类属性，需要使用__class__.属性名&#x3D; xxx </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">student</span>:<br>    name = <span class="hljs-string">&quot;小明&quot;</span><br>    age = <span class="hljs-number">18</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">say_hi</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;大家好，我是<span class="hljs-subst">&#123;self.name&#125;</span>&quot;</span>)<br><span class="hljs-meta">    @classmethod</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">say_hi</span>(<span class="hljs-params">cls</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;大家好，我是<span class="hljs-subst">&#123;cls.name&#125;</span>&quot;</span>)<br>su = student()<br>su.say_hi()<br>su.__class__.name = <span class="hljs-string">&quot;小红&quot;</span><br>su.say_hi()<br></code></pre></td></tr></table></figure>
+<p>调用类方法时，传入的是类的引用对象，调用实例对象时候，会传入实例对象的引用</p>
 
                 
               </div>
